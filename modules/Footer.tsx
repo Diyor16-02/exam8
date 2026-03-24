@@ -1,35 +1,35 @@
-import Image from "next/image";
-import Link from "next/link";
+import Container from "@/components/Container"
+import Image from "next/image"
+import Link from "next/link"
 
 export default function Footer() {
   return (
-    <footer className="py-20 bg-white/40 backdrop-blur-lg mt-20">
+    <footer className="relative mt-[193px] pt-[76px] pb-[71px] bg-[url('/images/footer-bg.png')]">
 
-      <div>
+      <div className="" />
 
-        <div className="grid grid-cols-4 gap-10">
+      <Container>
+        <div className="flex justify-between">
 
-          {/* logo */}
+          {/* LEFT */}
           <div>
-            <h2 className="text-2xl font-bold mb-4">
-              LOGO
-            </h2>
-
+            <div className="pb-[20px]">
+            <Link href="/"><Image src="/icons/logo.svg" alt="logo" width={136} height={72} /></Link>
+            </div>
+            {/* SOCIALS */}
             <div className="flex gap-3">
-              <Link href="/"><Image src="" alt="telegram" width={20} height={20}/></Link>
-              <Link href="/"><Image src="" alt="whatsup" width={22} height={20}/></Link>
-              <Link href="/"><Image src="" alt="facebook" width={20} height={19}/></Link>
-              <Link href="/"><Image src="" alt="instagram" width={29} height={20}/></Link>
+              <Link href="https://web.telegram.org/"><Image src="/icons/telegram.svg" alt="telegram" width={20} height={20}/></Link>
+              <Link href="https://www.whatsapp.com/"><Image src="/icons/whatsapp.svg" alt="whatsapp" width={22} height={20}/></Link>
+              <Link href="https://www.facebook.com/"><Image src="/icons/facebook.svg" alt="facebook" width={20} height={19}/></Link>
+              <Link href="https://www.instagram.com/"><Image src="/icons/instagram.svg" alt="instagram" width={19} height={20}/></Link>
             </div>
           </div>
 
-          {/* services */}
+          {/* SERVICES */}
           <div>
-            <h3 className="font-semibold mb-4">
-              Наши услуги
-            </h3>
+            <h3 className="text-[25px] mb-3">Наши услуги</h3>
 
-            <ul className="space-y-2 text-sm">
+            <ul className="space-y-2 text-[16px] text-[#080808]">
               <li>Цены</li>
               <li>Отслеживание</li>
               <li>Сообщить об ошибке</li>
@@ -37,45 +37,31 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* company */}
+          {/* COMPANY */}
           <div>
-            <h3 className="font-semibold mb-4">
-              Наша компания
-            </h3>
+            <h3 className="text-[25px] mb-3">Наша компания</h3>
 
-            <ul className="space-y-2 text-sm">
+            <ul className="space-y-2 text-[16px] text-[#080808]">
               <li>Отчетность</li>
               <li>Свяжитесь с нами</li>
               <li>Управление</li>
             </ul>
           </div>
 
-          {/* address */}
+          {/* ADDRESS */}
           <div>
-            <h3 className="font-semibold mb-4">
-              Адрес
-            </h3>
+            <h3 className="text-[25px] mb-3">Адрес</h3>
 
-            <p className="text-sm">
-              Узбекистан, Ташкент
-            </p>
-
-            <p className="text-sm">
-              Улица, 24
-            </p>
-
-            <p className="text-sm mt-2">
-              +998 94 888 44 48
-            </p>
-
-            <p className="text-sm">
-              info@bmgsoft.com
-            </p>
+            <ul className="space-y-2 text-[16px] text-[#080808]">
+              <li>Узбекистан, Ташкент</li>
+              <li>Улица, 24</li>
+              <li className="mt-2">+998948844848</li>
+              <li>info@bmgsoft.com</li>
+            </ul>
           </div>
 
         </div>
-
-      </div>
+      </Container>
 
     </footer>
   )

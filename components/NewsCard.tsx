@@ -1,43 +1,49 @@
 import Image from "next/image"
 
 type Props = {
-  image: string
+  img: string
   text: string
+  author: string
 }
 
-export default function NewsCard({ image, text }: Props) {
+export default function NewsCard({ img, text, author }: Props) {
   return (
-    <div className="bg-white/60 backdrop-blur-lg rounded-2xl p-6 w-75 shadow">
+    <div className="relative w-[360px]">
 
-      {/* image */}
-      <Image
-        src={image}
-        alt="news"
-        width={260}
-        height={160}
-        className="rounded-xl"
-      />
-
-      {/* text */}
-      <p className="text-sm mt-4 text-gray-700">
-        {text}
-      </p>
-
-      {/* author */}
-      <div className="flex items-center gap-2 mt-4">
+      {/* IMAGE */}
+      <div className="absolute -top-[70px] left-[20px] z-10">
         <Image
-          src="/images/avatar.png"
-          alt="author"
-          width={30}
-          height={30}
-          className="rounded-full"
+          src={img}
+          alt="news"
+          width={213}
+          height={157}
+          className="rounded-[30px] object-cover"
         />
-
-        <span className="text-sm font-semibold">
-          Сергей
-        </span>
       </div>
 
+      {/* CARD */}
+      <div className="pt-[100px] pl-6 bg-white/40 backdrop-blur-xl rounded-[30px] shadow-xl w-[360px] h-[277px]">
+
+        {/* TEXT */}
+        <p className="text-[16px] text-black leading-[160%]">
+          {text}
+        </p>
+
+        {/* AUTHOR */}
+        <div className="flex items-center gap-[13px] mt-[9px]">
+          <Image
+            src="/images/user.png"
+            alt="user"
+            width={45}
+            height={45}
+            className="rounded-full"
+          />
+          <span className="text-[18px] leading-[160%]">
+            {author}
+          </span>
+        </div>
+
+      </div>
     </div>
   )
 }

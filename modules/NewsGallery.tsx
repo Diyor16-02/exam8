@@ -1,46 +1,39 @@
-import Button from "@/components/Button"
-import NewsCard from "@/components/NewsCard"
+import Button from "@/components/Button";
+import Container from "@/components/Container";
+import NewsCard from "@/components/NewsCard";
 
 export default function NewsGallery() {
   return (
-    <section className="py-24">
+    <section className="relative">
+      <Container>
+        {/* TITLE */}
+        <h2 className="text-[48px] text-center mb-[143px]">Новости/Галерея</h2>
 
-      <div>
-
-        {/* title */}
-        <h2 className="text-center text-3xl font-bold mb-16">
-          Новости/Галерея
-        </h2>
-
-        {/* cards */}
-        <div className="flex justify-center gap-8">
-
+        {/* CARDS */}
+        <div className="flex justify-between">
           <NewsCard
-            image="/images/news1.png"
-            text="Используйте гибкие структуры, чтобы предоставить надежный обзор."
+            img="/images/News1.png"
+            text="Используйте гибкие структуры, чтобы предоставить надежный обзор для обзоров высокого уровня. Итеративные подходы к данным корпоративной."
+            author="Сергей"
           />
 
           <NewsCard
-            image="/images/news2.png"
-            text="Используйте гибкие структуры, чтобы предоставить надежный обзор."
+            img="/images/News2.png"
+            text="Используйте гибкие структуры, чтобы предоставить надежный обзор для обзоров высокого уровня. Итеративные подходы к данным корпоративной."
+            author="Сергей"
           />
 
           <NewsCard
-            image="/images/news3.png"
-            text="Используйте гибкие структуры, чтобы предоставить надежный обзор."
+            img="/images/News3.png"
+            text="Используйте гибкие структуры, чтобы предоставить надежный обзор для обзоров высокого уровня. Итеративные подходы к данным корпоративной."
+            author="Сергей"
           />
-
         </div>
-
-        {/* button */}
-        <div className="flex justify-end mt-12">
-          <Button>
-            Посмотреть все →
-          </Button>
-        </div>
-
+      </Container>
+      {/* BUTTON */}
+      <div className="absolute right-[170px] pt-[71px]">
+          <Button>Посмотреть все</Button>
       </div>
-
     </section>
-  )
+  );
 }

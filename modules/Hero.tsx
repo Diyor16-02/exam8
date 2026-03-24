@@ -9,9 +9,6 @@ export default function Hero() {
   return (
     <section className="mt-4 ">
 
-      {/* Tob Barim chaqirib oldim (tashqarida) */}     
-      <TopBar />
-
         <div className="px-[70px]">
         <GlassCard>
         <Container>

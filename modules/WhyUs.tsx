@@ -1,27 +1,31 @@
+import Container from "@/components/Container"
+import FeatureItem from "@/components/FeatureItem"
+
 export default function WhyUs() {
   return (
-    <section className="py-20">
+    <section className="py-[70px]">
+      <Container>
 
-      <h2 className="text-center text-3xl font-bold">
-        Почему именно мы?
-      </h2>
+        {/* TITLE */}
+        <h2 className="text-[48px] text-center mb-[77px]">
+          Почему именно мы?
+        </h2>
 
-      <div className="grid grid-cols-3 gap-10 mt-10">
-
-        <div>
-          <h3>Качественные продукты</h3>
+        {/* ROW 1 */}
+        <div className="flex mb-[90px]">
+          <FeatureItem icon="/images/soup.png" title="Качественные продукты" />
+          <FeatureItem icon="/icons/taxi.svg" title="Быстрая доставка" />
+          <FeatureItem icon="/images/pizza.png" title="Вкусные рецепты" />
         </div>
 
-        <div>
-          <h3>Быстрая доставка</h3>
+        {/* ROW 2 */}
+        <div className="flex justify-between">
+          <FeatureItem icon="/icons/terrace.svg" title="Уютная атмосфера" />
+          <FeatureItem icon="/icons/chef.svg" title="Опытные повара" />
+          <FeatureItem icon="/icons/service.svg" title="Обслуживания" />
         </div>
 
-        <div>
-          <h3>Вкусные рецепты</h3>
-        </div>
-
-      </div>
-
+      </Container>
     </section>
   )
 }
