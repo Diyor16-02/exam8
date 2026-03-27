@@ -4,6 +4,7 @@ import Filter from "@/components/Filter"
 import GlassCard from "@/components/GlassCard"
 import Header from "@/modules/Header"
 import NewsGallery from "@/modules/NewsGallery"
+import Link from "next/link"
 
 const categories = ["Первые", "Вторые", "Салаты", "Напитки", "Фаст-фуд"]
 
@@ -15,20 +16,19 @@ export default function MenuPage() {
       <Container>
         <Header/>
 
-        {/* BREADCRUMB */}
         <p className="text-[18px] text-[#626464] mt-[107px]">
-          Главная → Меню
+          <Link href="/">Главная</Link> → <span className="text-black">Меню</span>
         </p>
 
-        {/* TITLE */}
+        {/* title */}
         <h1 className="text-[40px] text-center mb-8">
           Меню
         </h1>
 
-        {/* FILTER */}
+        {/* filter */}
         <Filter/>
 
-        {/* GRID */}
+        {/* grid */}
         <div className="grid grid-cols-4 gap-[71px] gap-[45px]">
 
           {Array.from({ length: 16 }).map((_, i) => (
@@ -45,7 +45,7 @@ export default function MenuPage() {
       </Container>
       </GlassCard>
 
-      {/* NEWS */}
+      {/* news */}
       <NewsGallery />
 
     </section>

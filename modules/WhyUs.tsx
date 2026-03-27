@@ -6,19 +6,19 @@ export default function WhyUs() {
     <section className="py-[70px]">
       <Container>
 
-        {/* TITLE */}
+        {/* title */}
         <h2 className="text-[48px] text-center mb-[77px]">
           Почему именно мы?
         </h2>
 
-        {/* ROW 1 */}
+        {/* row1 */}
         <div className="flex mb-[90px]">
           <FeatureItem icon="/images/soup.png" title="Качественные продукты" />
           <FeatureItem icon="/icons/taxi.svg" title="Быстрая доставка" />
           <FeatureItem icon="/images/pizza.png" title="Вкусные рецепты" />
         </div>
 
-        {/* ROW 2 */}
+        {/* row2 */}
         <div className="flex justify-between">
           <FeatureItem icon="/icons/terrace.svg" title="Уютная атмосфера" />
           <FeatureItem icon="/icons/chef.svg" title="Опытные повара" />

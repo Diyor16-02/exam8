@@ -4,6 +4,7 @@ import TopBar from "./TopBar"
 import Container from "@/components/Container"
 import GlassCard from "@/components/GlassCard"
 import Image from "next/image"
+import Link from "next/link"
 
 export default function Hero() {
   return (
@@ -20,13 +21,15 @@ export default function Hero() {
           <div className="flex items-center justify-between">
 
             <div className="pt-[182px] ">
-              <h1 className="text-[64px] leading-[150%] w-[332px] h-[300px] leading-[70px]">
+              <h1 className="text-[64px] leading-[150%] w-[350px] h-[300px] font-bold leading-[70px]">
                 ВКУСНАЯ ЕДА ЖДЕТ ТЕБЯ!
               </h1>
 
+              <Link href="/menu">
               <Button>
                 Посмотреть меню
               </Button>
+              </Link>
             </div>
 
             <div className="">

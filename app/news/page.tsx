@@ -3,6 +3,7 @@ import GlassCard from "@/components/GlassCard";
 import NewsCard from "@/components/NewsCard";
 import Header from "@/modules/Header";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function NewsPage() {
   return (
@@ -11,9 +12,8 @@ export default function NewsPage() {
         <Container>
           <Header />
 
-          {/* BREADCRUMB */}
           <p className="text-[18px] text-[#626464] mt-[107px]">
-            Главная → Новости
+          <Link href="/">Главная</Link> → <span className="text-black">Новости</span>
           </p>
 
           {/* TITLE */}

@@ -10,7 +10,7 @@ export default function NewsCard({ img, text, author }: Props) {
   return (
     <div className="relative w-[360px]">
 
-      {/* IMAGE */}
+      {/* Image */}
       <div className="absolute -top-[70px] left-[20px] z-10">
         <Image
           src={img}
@@ -21,15 +21,15 @@ export default function NewsCard({ img, text, author }: Props) {
         />
       </div>
 
-      {/* CARD */}
+      {/* Card */}
       <div className="pt-[100px] pl-6 bg-white/40 backdrop-blur-xl rounded-[30px] shadow-xl w-[360px] h-[277px]">
 
-        {/* TEXT */}
+        {/* Text */}
         <p className="text-[16px] text-black leading-[160%]">
           {text}
         </p>
 
-        {/* AUTHOR */}
+        {/* author */}
         <div className="flex items-center gap-[13px] mt-[9px]">
           <Image
             src="/images/user.png"

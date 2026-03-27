@@ -10,7 +10,7 @@ export default function DishCard({ img, title, price }: Props) {
   return (
     <div className="relative w-[263px] h-[395px]">
 
-      {/* IMG */}
+      {/* Image */}
       <div className="absolute -top-[90px] left-1/2 -translate-x-1/2 z-10 w-[239px] h-[239px]">
         <Image
           src={img}
@@ -21,7 +21,7 @@ export default function DishCard({ img, title, price }: Props) {
         />
       </div>
 
-      {/* CARD */}
+      {/* Card */}
       <div className=" h-[310px] p-[20px] pt-[142px]  bg-white/40 rounded-[38px]">
 
         <h3 className="text-[24px] leading-[150%] flex gap-[70px]">

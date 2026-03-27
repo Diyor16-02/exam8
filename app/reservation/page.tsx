@@ -3,6 +3,7 @@ import GlassCard from "@/components/GlassCard";
 import Header from "@/modules/Header";
 import NewsGallery from "@/modules/NewsGallery";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function ReservationPage() {
   return (
@@ -11,17 +12,16 @@ export default function ReservationPage() {
         <Container>
           <Header />
 
-          {/* BREADCRUMB */}
           <p className="text-[18px] text-[#626464] mt-[107px]">
-            Главная → Бронирование
+          <Link href="/">Главная</Link> → <span className="text-black">Бронирование</span>
           </p>
 
-          {/* TITLE */}
+          {/* title */}
           <h1 className="text-[48px] text-center mt-[31px]">Бронирование</h1>
 
-          {/* TOP BLOCK */}
+          {/* top block */}
           <div className="grid grid-cols-2 gap-[118px] mt-[60px] items-center">
-            {/* LEFT - WORK TIME */}
+            {/* left - work time */}
             <div>
               <h3 className="text-[32px] mb-[36px]">Часы работы</h3>
 
@@ -56,7 +56,7 @@ export default function ReservationPage() {
             </div>
           </div>
 
-          {/* FORM */}
+          {/* form */}
           <div className="mt-[71px] max-w-[902px] mx-auto">
             <h2 className="text-[48px] text-center mb-[54px]">
               Хотите забронировать стол?
@@ -154,7 +154,7 @@ export default function ReservationPage() {
         </Container>
       </GlassCard>
 
-      {/* NEWS */}
+      {/* news */}
       <NewsGallery />
     </section>
   );

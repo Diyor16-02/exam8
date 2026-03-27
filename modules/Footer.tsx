@@ -4,19 +4,19 @@ import Link from "next/link"
 
 export default function Footer() {
   return (
-    <footer className="relative mt-[193px] pt-[76px] pb-[71px] bg-[url('/images/footer-bg.png')]">
+    <footer className="relative mt-[193px] pt-[76px] pb-[71px] bg-[url('/images/footer-bg.png')] footer">
 
       <div className="" />
 
       <Container>
         <div className="flex justify-between">
 
-          {/* LEFT */}
+          {/* left */}
           <div>
             <div className="pb-[20px]">
             <Link href="/"><Image src="/icons/logo.svg" alt="logo" width={136} height={72} /></Link>
             </div>
-            {/* SOCIALS */}
+            {/* socials */}
             <div className="flex gap-3">
               <Link href="https://web.telegram.org/"><Image src="/icons/telegram.svg" alt="telegram" width={20} height={20}/></Link>
               <Link href="https://www.whatsapp.com/"><Image src="/icons/whatsapp.svg" alt="whatsapp" width={22} height={20}/></Link>
@@ -25,7 +25,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* SERVICES */}
+          {/* services */}
           <div>
             <h3 className="text-[25px] mb-3">Наши услуги</h3>
 
@@ -37,7 +37,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* COMPANY */}
+          {/* company */}
           <div>
             <h3 className="text-[25px] mb-3">Наша компания</h3>
 
@@ -48,13 +48,20 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* ADDRESS */}
+          {/* address */}
           <div>
             <h3 className="text-[25px] mb-3">Адрес</h3>
 
             <ul className="space-y-2 text-[16px] text-[#080808]">
-              <li>Узбекистан, Ташкент</li>
+              <Link 
+              href="https://maps.app.goo.gl/keyjTPNLP9feXWVS8"
+              target="_blank"
+              className="hover:underline"
+              >  
+              Узбекистан, Ташкент
               <li>Улица, 24</li>
+              </Link>
+              
               <li className="mt-2">+998948844848</li>
               <li>info@bmgsoft.com</li>
             </ul>

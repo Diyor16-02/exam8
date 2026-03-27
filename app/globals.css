@@ -134,3 +134,14 @@ body {
     @apply font-sans;
     }
 }
+
+/* login/register da TopBar va Footer ni yashirish */
+.login-page ~ header,
+.login-page ~ footer {
+  display: none;
+}
+.login-page {
+  background-image: url("/images/login-bg.png");
+  background-size: cover;
+  background-position: center;
+}

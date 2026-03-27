@@ -2,6 +2,7 @@ import Image from "next/image"
 import GlassCard from "@/components/GlassCard"
 import Button from "@/components/Button"
 import Container from "@/components/Container"
+import Link from "next/link"
 
 export default function ReservationCard() {
   return (
@@ -9,7 +10,7 @@ export default function ReservationCard() {
         <Container>
         <GlassCard className="w-[463px] h-[720px] mt-[300px]">
         
-        {/* ICON */}
+        {/* icon */}
         <div className=" w-[111px] h-[111px] bg-black rounded-full flex items-center justify-center border-[10px] border-white/70">
           <Image src="/icons/bronicon.svg" alt="icon" width={50} height={50} />
         </div>
@@ -17,15 +18,15 @@ export default function ReservationCard() {
         <div className="px-[54px] py-[41px]">
         
 
-        {/* TITLE */}
+        {/* title */}
         <h2 className="text-[24px] text-[32px] mb-[34px]">
           Забронировать стол
         </h2>
 
-        {/* INPUTS */}
+        {/* inputs */}
         <div className="space-y-5">
 
-          {/* PHONE */}
+          {/* phone */}
           <div className="border-b border-black pb-2">
             <input
               placeholder="Ваш номер"
@@ -34,7 +35,7 @@ export default function ReservationCard() {
             />
           </div>
 
-          {/* PEOPLE */}
+          {/* people */}
           <div className="border-b border-black pb-2 flex items-center justify-between">
             <input
               placeholder="На сколько человек?"
@@ -43,7 +44,7 @@ export default function ReservationCard() {
             />
           </div>
 
-          {/* DATE */}
+          {/* date */}
           <div className="border-b border-black pb-2 flex items-center justify-between">
             <input
               placeholder="Выберите дату"
@@ -52,7 +53,7 @@ export default function ReservationCard() {
             />
           </div>
 
-          {/* TIME */}
+          {/* time */}
           <div className="border-b border-black pb-2 flex items-center justify-between">
             <input
               placeholder="Выберите время"
@@ -61,7 +62,7 @@ export default function ReservationCard() {
             />
           </div>
 
-          {/* PLACE */}
+          {/* place */}
           <div className="border-b border-black pb-2 flex items-center justify-between">
             <input
               placeholder="Выберите место"
@@ -72,15 +73,17 @@ export default function ReservationCard() {
 
         </div>
 
-        {/* LINK */}
+        {/* link */}
         <p className="text-[#06004C] text-sm mt-2 cursor-pointer pt-2 pb-[41px]">
           Выбрать места на карте
         </p>
 
-        {/* BUTTON */}
+        {/* button */}
+        <Link href="/reservation">
         <button className="w-[169px] h-[59px] rounded-[13px] bg-black text-white">
           Забронировать
         </button>
+        </Link>
         </div>
         </GlassCard>
         </Container>
