@@ -1,7 +1,7 @@
 "use client";
 
 import GlassCard from "@/components/GlassCard";
-import { useState } from "react";
+import { SubmitEvent, useState } from "react";
 import { signUp } from "../../services/auth";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -9,100 +9,80 @@ import Link from "next/link";
 export default function RegisterPage() {
   const router = useRouter();
 
-  const [form, setForm] = useState({
-    firstName: "",
-    lastName: "",
-    phone: "",
-    username: "",
-    password: "",
-    confirm: "",
-  });
-
-  const handleChange = (e: any) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async () => {
-    if (form.password !== form.confirm) {
-      alert("Пароли не совпадают ❌");
-      return;
+ async function handleSubmit(e:SubmitEvent<HTMLFormElement>){
+    e.preventDefault()
+    const data = {
+      username: `${e.target.firstName} ${e.target.lastName}`,
+      email: e.target.email.value,
+      password: e.target.password.value
     }
-
-    try {
-      await signUp(form);
-      router.push("/login");
-    } catch {
-      alert("Ошибка регистрации ❌");
-    }
-  };
-
+    signUp(data).then(res => {
+      setTimeout(()=>{
+        router.push("/login")
+      },1000)
+    })
+    
+ }
   return (
     <section className="fixed top-0 left-0 w-full h-[80px] bg-black z-[999] min-h-screen flex items-center justify-center login-page">
-
-      <GlassCard className="w-[463px] h-[764px] px-[50px] pt-[63px]">
-        <h1 className="text-[32px] font-semibold text-center mb-[37px]">
-          Зарегистрироваться
+      <GlassCard className="w-[463px] px-[50px] pt-[40px] pb-[30px]">
+        <h1 className="text-[28px] font-semibold text-center mb-[30px]">
+          Регистрация
         </h1>
 
-        <div className="flex flex-col gap-[20px]">
+       <form onSubmit={handleSubmit}>
+       <div className="flex flex-col gap-[20px]">
           <input
             name="firstName"
             placeholder="Ваше имя"
-            onChange={handleChange}
-            className="bg-transparent border-b border-black outline-none py-[10px] input-line"          />
+            className="border-b py-[10px] outline-none"
+          />
+
           <input
             name="lastName"
             placeholder="Фамилия"
-            onChange={handleChange}
-            className="bg-transparent border-b border-black outline-none py-[10px] input-line"
+            className="border-b py-[10px] outline-none"
           />
+
           <input
-            name="phone"
-            placeholder="Ваш номер телефона"
-            onChange={handleChange}
-            className="bg-transparent border-b border-black outline-none py-[10px] input-line"
+            name="email"
+            placeholder="Email"
+            className="border-b py-[10px] outline-none"
           />
+
           <input
             name="username"
             placeholder="Ваше имя пользователя"
-            onChange={handleChange}
-            className="bg-transparent border-b border-black outline-none py-[10px] input-line"
+            className="border-b py-[10px] outline-none"
           />
+
+          {/* password */}
           <input
             name="password"
             type="password"
             placeholder="Пароль"
-            onChange={handleChange}
-            className="bg-transparent border-b border-black outline-none py-[10px] input-line"
-          />
-          <input
-            name="confirm"
-            type="password"
-            placeholder="Подтвердите пароль"
-            onChange={handleChange}
-            className="bg-transparent border-b border-black outline-none py-[10px] input-line"
+            className="border-b py-[10px] outline-none"
           />
 
-          {/* CHECKBOX */}
-          <label className="flex items-start gap-[10px] text-[12px] text-[#454545]">
-            <input type="checkbox" className=""/>Я прочитал и принял Политику
-            конфиденциальности <br /> и Условия*
+          <label className="flex items-start gap-[10px] text-[12px]">
+            <input type="checkbox" required />
+            Я принимаю условия
           </label>
 
-          {/* BUTTON */}
           <button
-            onClick={handleSubmit}
-            className="w-[169px] h-[59px] ml-[100px] bg-black text-white py-[14px] rounded-[13px] mt-[27px]"
+          type="submit"
+            className="w-[169px] h-[59px] bg-black text-white ml-[100px] rounded-[10px] mt-[10px]"
           >
             Вход в аккаунт
           </button>
 
-          <p className="text-center text-[#06004C] text-[12px]">
-            <Link href="/login" className="">
-              Уже есть аккаунт?
+          <p className="text-center text-[12px]">
+            <Link href="/login" className="text-[#06004C]">
+            Уже есть аккаунт?
             </Link>
           </p>
         </div>
+       </form>
       </GlassCard>
     </section>
   );

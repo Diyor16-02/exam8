@@ -1,89 +1,86 @@
 "use client";
 
 import GlassCard from "@/components/GlassCard";
-import { useState } from "react";
-import { signIn } from "../../services/auth";
+import { SubmitEvent, useState } from "react";
+import { signIn, signUp } from "../../services/auth";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 
-export default function LoginPage() {
+
+export default function RegisterPage() {
   const router = useRouter();
+  const [show, setShow] = useState(false);
 
-  const [form, setForm] = useState({
-    username: "",
-    password: "",
-  });
+ async function handleSubmit(e:SubmitEvent<HTMLFormElement>){
+    e.preventDefault()
+    const data = {
+      username: e.target.username.value,
+      password: e.target.password.value
 
-  const handleChange = (e: any) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async () => {
-    try {
-      const res = await signIn(form);
-
-      localStorage.setItem("user", JSON.stringify(res.user));
-      document.cookie = `token=${res.token}`;
-
-      router.push("/");
-    } catch {
-      alert("Ошибка входа ❌");
     }
-  };
+    signIn(data).then(res => {
+      setTimeout(()=>{
+        router.push("/")
+      },1000)
+    // SetCookie("username",res.data.username)
+    })
+    
+ }
 
   return (
     <section className="fixed top-0 left-0 w-full h-[80px] bg-black z-[999] min-h-screen flex items-center justify-center login-page">
       <GlassCard className="w-[463px] px-[53px] h-[529px] pt-[27px] relative">
-        {/* logo circle */}
-        <div className="relative flex">
+        
+        {/* logo */}
+        <div className="relative flex justify-center">
           <div className="absolute -top-[55px] w-[111px] h-[111px] bg-black rounded-full flex items-center justify-center border-[10px] border-white/80">
-            <Image
-              src="/icons/bronicon.svg"
-              alt="icon"
-              width={50}
-              height={50}
-            />
+            <Image src="/icons/bronicon.svg" alt="icon" width={50} height={50} />
           </div>
         </div>
 
-        <h1 className="text-[32px] font-semibold mb-[34px] mt-[100px]">
+        <h1 className="text-[32px] font-semibold mb-[34px] mt-[100px] text-center">
           Вход в аккаунт
         </h1>
 
-        {/* inputs */}
+        <form onSubmit={handleSubmit}>
         <div className="flex flex-col gap-[25px]">
           <input
             name="username"
             placeholder="Ваше имя пользователя"
-            onChange={handleChange}
             className="bg-transparent border-b border-black outline-none py-[10px]"
           />
 
-          <div>
+          <div className="relative">
             <input
               name="password"
-              type="password"
+              type={show ? "text" : "password"}
               placeholder="Пароль"
-              onChange={handleChange}
               className="bg-transparent border-b border-black outline-none py-[10px] w-full"
             />
-            <p className="text-[12px] mt-[8px]">
-              Забыли пароль?
-            </p>
+
+            <button
+              type="button"
+              onClick={() => setShow(!show)}
+              className="absolute right-2 top-1/2 -translate-y-1/2 pb-[10px]"
+            >
+              {show ? "🙈" : "👁️"}
+            </button>
+
+            <p className="text-[12px] mt-[8px]">Забыли пароль?</p>
           </div>
         </div>
-
-        {/* button */}
         <button
-          onClick={handleSubmit}
-          className="ml-[95px] w-[169px] h-[59px] bg-black text-white py-[18px] rounded-[13px] mt-[27px]"
+          type="submit"
+          className="w-[169px] h-[59px] ml-[95px] bg-black text-white rounded-[10px] mt-[30px]"
         >
           Вход в аккаунт
         </button>
+        </form>
 
-        {/* link */}
-        <p className="text-center text-[12px] mt-[7px]">
+        
+
+        <p className="text-center text-[12px] mt-[10px]">
           <Link href="/register" className="text-[#06004C]">
             Еще нет учетной записи?
           </Link>

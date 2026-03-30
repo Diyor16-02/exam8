@@ -27,7 +27,6 @@ export default function Header() {
     { name: "Бронирование", href: "/reservation" },
     { name: "О нас", href: "/about" },
     { name: "Контакты", href: "/contact" },
-    { name: "оплата", href: "/oplata" },
   ]
 
   return (
@@ -62,8 +61,9 @@ export default function Header() {
         <Image src="/icons/like.svg" alt="like" width={33} height={33} />
 
         {/* cart */}
-        <Image src="/icons/shopping.svg" alt="shopping" width={35} height={35} />
-
+       <Link href="/oplata">
+       <Image src="/icons/shopping.svg" alt="shopping" width={35} height={35} />
+       </Link>
 
 
       </div>
